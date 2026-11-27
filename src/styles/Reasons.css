@@ -1,0 +1,19 @@
+.reasons { background: var(--sage); }
+.reasons-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.reason { padding: 26px 22px 30px; border-top: 2px solid var(--green); transition: transform .35s var(--ease), background .35s; }
+.reason:hover { transform: translateY(-6px); background: rgba(248, 243, 233, .45); }
+.reason-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px; font-size: .75rem; font-weight: 700; letter-spacing: .2em; }
+.reason-icon { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: var(--green); color: var(--gold); transition: transform .5s var(--ease); }
+.reason:hover .reason-icon { transform: rotate(-12deg) scale(1.1); }
+.reason h3 { margin-bottom: 10px; font-size: 1.4rem; text-wrap: balance; }
+.reason p { font-size: .95rem; opacity: .85; }
+
+@media (max-width: 900px) {
+  .reasons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .reason { padding: 22px 18px 24px; }
+}
+@media (max-width: 520px) {
+  .reasons-grid { grid-template-columns: 1fr; }
+  .reason { padding: 20px 8px 24px; }
+  .reason-top { margin-bottom: 20px; }
+}

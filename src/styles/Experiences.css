@@ -1,0 +1,548 @@
+
+/* ==========================================
+   VARANASI — IMMERSIVE FOOD EXPERIENCES
+========================================== */
+
+.immersive-experiences {
+  --ie-green: #142d21;
+  --ie-green-light: #284b35;
+  --ie-cream: #f5efdf;
+  --ie-muted: #c0c5b6;
+  --ie-gold: #d3b276;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(100px, 11vw, 155px) clamp(24px, 8vw, 125px) 45px;
+  color: var(--ie-cream);
+  background:
+    radial-gradient(ellipse at 75% 35%, rgba(95, 118, 76, 0.19), transparent 36%),
+    linear-gradient(135deg, #11281d 0%, #193b2a 53%, #10271c 100%);
+}
+
+.immersive-experiences-glow {
+  position: absolute;
+  top: 15%;
+  right: -18%;
+  z-index: -1;
+  width: 60vw;
+  height: 60vw;
+  max-width: 850px;
+  max-height: 850px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(194, 162, 104, 0.105),
+    transparent 68%
+  );
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.immersive-experiences-inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------
+   SECTION HEADING
+------------------------------------------ */
+
+.immersive-experiences-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--ie-gold);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-align: center;
+}
+
+.immersive-experiences-kicker span:first-child,
+.immersive-experiences-kicker span:last-child {
+  width: 35px;
+  height: 1px;
+  background: rgba(211, 178, 118, 0.65);
+}
+
+.immersive-experiences-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.48fr);
+  align-items: end;
+  gap: 55px;
+  margin-top: 37px;
+  margin-bottom: 54px;
+}
+
+.immersive-experiences-overline {
+  display: block;
+  margin-bottom: 16px;
+  color: #a7ad9c;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+.immersive-experiences-heading h2 {
+  margin: 0;
+  color: var(--ie-cream);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(58px, 7vw, 94px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.immersive-experiences-heading h2 em {
+  color: var(--ie-gold);
+  font-weight: 500;
+}
+
+.immersive-experiences-heading-row > p {
+  max-width: 390px;
+  margin: 0 0 10px auto;
+  color: var(--ie-muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* ------------------------------------------
+   EXPERIENCE CARD GRID
+------------------------------------------ */
+
+.immersive-experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 17px;
+  perspective: 1400px;
+}
+
+.immersive-experience-card {
+  position: relative;
+  min-width: 0;
+  min-height: 420px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(231, 213, 176, 0.22);
+  background: #293c2e;
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transition:
+    border-color 320ms ease,
+    box-shadow 320ms ease;
+  will-change: transform;
+}
+
+.immersive-experience-card:nth-child(1),
+.immersive-experience-card:nth-child(2),
+.immersive-experience-card:nth-child(3) {
+  grid-column: span 4;
+}
+
+.immersive-experience-card:nth-child(4),
+.immersive-experience-card:nth-child(5) {
+  grid-column: span 6;
+  min-height: 355px;
+}
+
+.immersive-experience-card:hover {
+  border-color: rgba(211, 178, 118, 0.62);
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.27),
+    0 5px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* ------------------------------------------
+   IMAGE AND CINEMATIC OVERLAY
+------------------------------------------ */
+
+.immersive-experience-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #344735;
+}
+
+.immersive-experience-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 19, 13, 0.12) 0%,
+    rgba(9, 19, 13, 0.02) 35%,
+    rgba(9, 19, 13, 0.55) 69%,
+    rgba(9, 19, 13, 0.9) 100%
+  );
+}
+
+.immersive-experience-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.035);
+  filter: saturate(0.86);
+  transition:
+    transform 850ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    filter 650ms ease;
+}
+
+.immersive-experience-card:hover .immersive-experience-image img {
+  transform: scale(1.13);
+  filter: saturate(1.08);
+}
+
+.immersive-experience-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(9, 20, 14, 0.13) 48%,
+    rgba(9, 20, 14, 0.79) 100%
+  );
+  pointer-events: none;
+}
+
+/* ------------------------------------------
+   TOP NUMBER AND ICON
+------------------------------------------ */
+
+.immersive-experience-top {
+  position: absolute;
+  top: 20px;
+  left: 21px;
+  right: 21px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateZ(25px);
+}
+
+.immersive-experience-number {
+  color: rgba(248, 241, 225, 0.9);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.immersive-experience-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(245, 239, 223, 0.5);
+  border-radius: 50%;
+  color: var(--ie-cream);
+  background: rgba(16, 36, 25, 0.26);
+  backdrop-filter: blur(8px);
+  transition:
+    background 250ms ease,
+    color 250ms ease,
+    transform 350ms ease;
+}
+
+.immersive-experience-card:hover .immersive-experience-icon {
+  color: #17291d;
+  background: var(--ie-gold);
+  transform: rotate(-9deg);
+}
+
+/* ------------------------------------------
+   CARD CONTENT
+------------------------------------------ */
+
+.immersive-experience-content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 28px 25px 26px;
+  transform: translateZ(35px);
+}
+
+.immersive-experience-category {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ie-gold);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.immersive-experience-content h3 {
+  margin: 0;
+  color: #fff8e9;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(23px, 2.5vw, 34px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.immersive-experience-content p {
+  max-width: 310px;
+  margin: 10px 0 0;
+  color: rgba(245, 239, 223, 0.78);
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.immersive-experience-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 20px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(211, 178, 118, 0.58);
+  color: #f3e8d0;
+  text-decoration: none;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  transition:
+    gap 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.immersive-experience-link:hover {
+  gap: 20px;
+  color: var(--ie-gold);
+  border-color: var(--ie-gold);
+}
+
+/* Fine gold inset border */
+
+.immersive-experience-edge {
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  border: 1px solid rgba(246, 233, 202, 0.14);
+  pointer-events: none;
+  transition: border-color 300ms ease;
+}
+
+.immersive-experience-card:hover .immersive-experience-edge {
+  border-color: rgba(246, 233, 202, 0.36);
+}
+
+/* ------------------------------------------
+   BOTTOM STRIP
+------------------------------------------ */
+
+.immersive-experiences-bottom {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(234, 224, 204, 0.17);
+}
+
+.immersive-experiences-bottom-line {
+  width: 35px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--ie-gold);
+}
+
+.immersive-experiences-bottom p {
+  margin: 0;
+  color: rgba(230, 222, 204, 0.63);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.immersive-experiences-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  color: var(--ie-gold);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  transition: gap 220ms ease;
+}
+
+.immersive-experiences-bottom a:hover {
+  gap: 16px;
+}
+
+/* ------------------------------------------
+   TABLET
+------------------------------------------ */
+
+@media (max-width: 1000px) {
+  .immersive-experiences {
+    padding-inline: 5vw;
+  }
+
+  .immersive-experiences-heading-row {
+    gap: 30px;
+  }
+
+  .immersive-experience-card {
+    min-height: 370px;
+  }
+
+  .immersive-experience-card:nth-child(4),
+  .immersive-experience-card:nth-child(5) {
+    min-height: 320px;
+  }
+
+  .immersive-experience-content {
+    padding: 22px 18px;
+  }
+}
+
+/* ------------------------------------------
+   MOBILE
+------------------------------------------ */
+
+@media (max-width: 720px) {
+  .immersive-experiences {
+    padding: 90px 21px 30px;
+  }
+
+  .immersive-experiences-heading-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 28px;
+    margin-bottom: 34px;
+  }
+
+  .immersive-experiences-heading h2 {
+    font-size: clamp(58px, 12vw, 78px);
+  }
+
+  .immersive-experiences-heading-row > p {
+    max-width: 500px;
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .immersive-experiences-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    perspective: none;
+  }
+
+  .immersive-experience-card,
+  .immersive-experience-card:nth-child(n) {
+    grid-column: span 1;
+    min-height: 340px;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .immersive-experience-card:nth-child(1),
+  .immersive-experience-card:nth-child(4) {
+    grid-column: 1 / -1;
+    min-height: 390px;
+  }
+
+  .immersive-experience-top {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    transform: none;
+  }
+
+  .immersive-experience-icon {
+    width: 37px;
+    height: 37px;
+  }
+
+  .immersive-experience-content {
+    padding: 20px 16px 19px;
+    transform: none;
+  }
+
+  .immersive-experience-content h3 {
+    font-size: clamp(19px, 4.6vw, 27px);
+  }
+
+  .immersive-experience-content p {
+    font-size: 10px;
+  }
+
+  .immersive-experience-link {
+    margin-top: 15px;
+    font-size: 7px;
+  }
+
+  .immersive-experiences-bottom {
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 27px;
+    padding-top: 19px;
+  }
+}
+
+/* ------------------------------------------
+   SMALL PHONES
+------------------------------------------ */
+
+@media (max-width: 420px) {
+  .immersive-experiences {
+    padding-inline: 16px;
+  }
+
+  .immersive-experiences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .immersive-experience-card,
+  .immersive-experience-card:nth-child(n),
+  .immersive-experience-card:nth-child(1),
+  .immersive-experience-card:nth-child(4) {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+
+  .immersive-experience-content h3 {
+    font-size: 29px;
+  }
+
+  .immersive-experiences-bottom p {
+    max-width: 190px;
+    line-height: 1.7;
+  }
+
+  .immersive-experiences-bottom a {
+    margin-left: auto;
+  }
+}
+
+/* ------------------------------------------
+   ACCESSIBILITY
+------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .immersive-experience-card,
+  .immersive-experience-image img,
+  .immersive-experience-icon,
+  .immersive-experience-link,
+  .immersive-experiences-bottom a {
+    transition: none !important;
+  }
+
+  .immersive-experience-card:hover .immersive-experience-image img {
+    transform: none;
+  }
+}
