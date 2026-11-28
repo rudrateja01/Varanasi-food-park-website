@@ -122,14 +122,14 @@ function ExperienceCard({ item, index }) {
 
         <p>{item.desc}</p>
 
-        <a
+        {/* <a
           className="immersive-experience-link"
           href="#menu"
           aria-label={`Explore the menu for ${item.title}`}
         >
           <span>EXPLORE MENU</span>
           <ArrowUpRight size={17} />
-        </a>
+        </a> */}
       </div>
 
       <div className="immersive-experience-edge" />
@@ -228,10 +228,10 @@ export default function ImmersiveExperiences() {
             FIVE WAYS TO MAKE AN ORDINARY DAY FEEL BETTER.
           </p>
 
-          <a href="#menu">
+          {/* <a href="#menu">
             VIEW OUR MENU
             <ArrowUpRight size={16} />
-          </a>
+          </a> */}
         </motion.div>
       </div>
     </section>

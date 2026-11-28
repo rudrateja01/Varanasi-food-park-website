@@ -298,31 +298,6 @@
   line-height: 1.75;
 }
 
-.immersive-experience-link {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  margin-top: 20px;
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgba(211, 178, 118, 0.58);
-  color: #f3e8d0;
-  text-decoration: none;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  transition:
-    gap 220ms ease,
-    color 220ms ease,
-    border-color 220ms ease;
-}
-
-.immersive-experience-link:hover {
-  gap: 20px;
-  color: var(--ie-gold);
-  border-color: var(--ie-gold);
-}
-
 /* Fine gold inset border */
 
 .immersive-experience-edge {
@@ -481,11 +456,6 @@
     font-size: 10px;
   }
 
-  .immersive-experience-link {
-    margin-top: 15px;
-    font-size: 7px;
-  }
-
   .immersive-experiences-bottom {
     flex-wrap: wrap;
     gap: 11px;
@@ -537,7 +507,6 @@
   .immersive-experience-card,
   .immersive-experience-image img,
   .immersive-experience-icon,
-  .immersive-experience-link,
   .immersive-experiences-bottom a {
     transition: none !important;
   }
